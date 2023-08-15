@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet initial map</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <style>
+    #leaflet-map {
+      height: 700px;
+      width: 700px;
+    }
+    </style>
+
+</head>
+<body>
+    
+    <div id="leaflet-map"></div>
+
+
+    <script>
+
+        // Start the timer before setting up the Leaflet map
+var leafletStartTime = Date.now();
+
+
+        // Leaflet Map
+        var leafletMap = L.map('leaflet-map').setView([52.2, 6.9], 10);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18
+        }).addTo(leafletMap);
+
+// Calculate the time taken to render the map
+var leafletEndTime = Date.now();
+var leafletTimeTaken = leafletEndTime - leafletStartTime;
+console.log("Leaflet Map took " + leafletTimeTaken + " milliseconds to render.");
+    </script>
+</body>
+</html>

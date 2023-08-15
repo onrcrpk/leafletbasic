@@ -22,6 +22,7 @@
 
 
     <script>
+var startTime = performance.now();
 
         // Start the timer before setting up the Leaflet map
 var leafletStartTime = Date.now();
@@ -34,10 +35,9 @@ var leafletStartTime = Date.now();
         maxZoom: 18
         }).addTo(leafletMap);
 
-// Calculate the time taken to render the map
-var leafletEndTime = Date.now();
-var leafletTimeTaken = leafletEndTime - leafletStartTime;
-console.log("Leaflet Map took " + leafletTimeTaken + " milliseconds to render.");
+        var endTime = performance.now();
+var timeTaken = endTime - startTime;
+console.log("Time taken to load the Leaflet map: " + timeTaken + "ms");
     </script>
 </body>
 </html>
